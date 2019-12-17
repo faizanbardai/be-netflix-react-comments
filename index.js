@@ -7,7 +7,7 @@ const listEndpoints = require("express-list-endpoints");
 const server = express();
 const port = process.env.PORT;
 
-var whitelist = ["http://localhost:3000/"];
+var whitelist = ["http://localhost:3000/", "https://be-netflix-react-comments.herokuapp.com/"];
 var corsOptions = {
   origin: function(origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
