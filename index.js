@@ -7,20 +7,23 @@ const listEndpoints = require("express-list-endpoints");
 const server = express();
 const port = process.env.PORT;
 
-// var whitelist = ["http://localhost:3000/"];
-// var corsOptions = {
-//   origin: function(origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   }
-// };
+var whitelist = ["http://localhost:3000/"];
+var corsOptions = {
+  origin: function(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+};
 
-// server.use(cors(corsOptions));
-server.use(cors());
+server.use(cors(corsOptions));
+// server.use(cors());
 server.use(express.json());
+server.get("/", (req, res) => {
+  res.send("server says hi!");
+});
 server.use("/comments", commentsRouter);
 
 console.log(listEndpoints(server));
