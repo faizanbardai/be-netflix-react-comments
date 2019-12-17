@@ -1,7 +1,8 @@
 const express = require("express");
 require("dotenv").config();
 var cors = require("cors");
-const listEndpoints = require('express-list-endpoints')
+const commentsRouter = require("./src/routes/comments.route");
+const listEndpoints = require("express-list-endpoints");
 
 const server = express();
 const port = process.env.PORT;
@@ -20,10 +21,7 @@ const port = process.env.PORT;
 // server.use(cors(corsOptions));
 server.use(cors());
 server.use(express.json());
-
-server.get("/one", (req, res) => {
-  res.send("hello");
-});
+server.use("/comments", commentsRouter);
 
 console.log(listEndpoints(server));
 
