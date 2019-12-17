@@ -11,7 +11,8 @@ var whitelist = [
   "http://localhost:3000/",
   "https://be-netflix-react-comments.herokuapp.com/",
   "http://be-netflix-react-comments.herokuapp.com/",
-  "https://faizanbardai.github.io/netflix-react/",
+  // "https://faizanbardai.github.io/netflix-react/",
+  "https://faizanbardai.github.io",
   process.env.FE_URL
 ];
 var corsOptions = {
