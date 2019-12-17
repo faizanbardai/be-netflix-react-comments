@@ -8,15 +8,16 @@ const server = express();
 const port = process.env.PORT;
 
 var whitelist = [
-  "http://localhost:3000/",
-  "https://be-netflix-react-comments.herokuapp.com/",
-  "http://be-netflix-react-comments.herokuapp.com/",
+  "http://localhost:3000",
+  // "https://be-netflix-react-comments.herokuapp.com/",
+  // "http://be-netflix-react-comments.herokuapp.com/",
   // "https://faizanbardai.github.io/netflix-react/",
   "https://faizanbardai.github.io",
   process.env.FE_URL
 ];
 var corsOptions = {
   origin: function(origin, callback) {
+    console.log(origin)
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
